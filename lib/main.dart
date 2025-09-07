@@ -30,28 +30,47 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:  Image.asset(
-        "assets/images/coffe.png",
-        height: double.infinity,
-        width: double.infinity,
-        fit:BoxFit.cover,
+      body: SafeArea(
+        child: Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.coffee, size: 40, color: Colors.black),
+                  Text(
+                    "Coffee Shop",
+                    style: TextStyle(
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                ],
+              ),
+              CircleAvatar(
+                radius: 50,
+                backgroundImage: AssetImage("assets/images/coffe.png"),
+              ),
+              Card(
+                color: Colors.brown,
+                child: ListTile(
+                  leading: Icon(Icons.coffee, color: Colors.black),
+                  title: Text(
+                    "Buy me a coffee",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
-      floatingActionButton: FloatingActionButton(
-      onPressed: _incrementCounter,
-      tooltip: 'Increment',
-      child: const Icon(Icons.add),
-    ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
