@@ -67,6 +67,22 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
               ),
+              Row(
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Image.asset("assets/images/coffe.png"),
+                    ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Image.asset("assets/images/coffe.png",),
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
