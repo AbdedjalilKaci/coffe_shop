@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 void main() {
   runApp(const MyApp());
@@ -30,6 +31,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int randomnumber = 0;
+  void createnewnumber() {
+    randomnumber = Random().nextInt(100);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,6 +66,11 @@ class _MyHomePageState extends State<MyHomePage> {
               Card(
                 color: Colors.brown,
                 child: ListTile(
+                  onTap: () {
+                    setState(() {
+                      createnewnumber();
+                    });
+                  },
                   leading: Icon(Icons.coffee, color: Colors.black),
                   title: Text(
                     "Buy me a coffee",
@@ -67,22 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
               ),
-              Row(
-                children: [
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.all(20.0),
-                      child: Image.asset("assets/images/coffe.png"),
-                    ),
-                  ),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.all(20.0),
-                      child: Image.asset("assets/images/coffe.png",),
-                    ),
-                  ),
-                ],
-              ),
+              Text('The new number is :$randomnumber'),
             ],
           ),
         ),
