@@ -1,3 +1,4 @@
+import 'package:coffe_shop/screens/home_page.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.transparent),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const  HomePage()
     );
   }
 }
