@@ -1,8 +1,15 @@
+import 'package:coffe_shop/screens/homepage.dart';
 import 'package:coffe_shop/widgets/mybutton.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class OnBoarding extends StatelessWidget {
+  const OnBoarding({super.key});
+  void gotohomepage(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const Homepage()),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -10,12 +17,12 @@ class HomePage extends StatelessWidget {
       body: Stack(
         children: [
           Positioned(
-            top: 550,
+            top: 350,
             left: 0,
             right: 0,
             child: Image.asset(
-              "assets/images/black-picture.jpg",
-              height: 250,
+              "assets/images/shadow.png",
+              height: 450,
               fit: BoxFit.cover,
               filterQuality: FilterQuality.high,
             ),
@@ -25,9 +32,9 @@ class HomePage extends StatelessWidget {
             left: 0,
             right: 0,
             child: Image.asset(
-              "assets/images/coffe.png",
+              "assets/images/coffehere.png",
               width: double.infinity,
-              height: 550,
+              // height: 550,
               fit: BoxFit.cover,
               filterQuality: FilterQuality.high,
             ),
@@ -86,6 +93,7 @@ class HomePage extends StatelessWidget {
               height: 60,
               width: 300,
               raduis: 15,
+              onTap:()=> gotohomepage(context),
             ),
           ),
         ],

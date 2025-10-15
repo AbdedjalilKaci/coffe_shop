@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.transparent),
       ),
-      home: const  HomePage()
+      home: const  OnBoarding()
     );
   }
 }

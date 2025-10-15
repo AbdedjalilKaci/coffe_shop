@@ -7,6 +7,7 @@ class MyButton extends StatelessWidget {
   final double width;
   final double height;
   final double raduis;
+  final VoidCallback onTap; // Use VoidCallback
 
   const MyButton({
     super.key,
@@ -16,8 +17,10 @@ class MyButton extends StatelessWidget {
     required this.height,
     required this.width,
     required this.raduis,
+    required this.onTap,
   });
 
+  // Helper to convert hex string to Color
   Color hexToColor(String hex) {
     hex = hex.replaceAll('#', '');  
     if (hex.length == 6) hex = 'FF$hex';  
@@ -26,20 +29,23 @@ class MyButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: width,
-      height: height,
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-        color: hexToColor(backcolor),
-        borderRadius: BorderRadius.circular(raduis),
-      ),
-      child: Text(
-        label,
-        style: TextStyle(
-          color: hexToColor(color),
-          fontWeight: FontWeight.bold,
-          fontSize: 16,
+    return GestureDetector(
+      onTap: onTap, // Call the function when tapped
+      child: Container(
+        width: width,
+        height: height,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          color: hexToColor(backcolor),
+          borderRadius: BorderRadius.circular(raduis),
+        ),
+        child: Text(
+          label,
+          style: TextStyle(
+            color: hexToColor(color),
+            fontWeight: FontWeight.bold,
+            fontSize: 16,
+          ),
         ),
       ),
     );
